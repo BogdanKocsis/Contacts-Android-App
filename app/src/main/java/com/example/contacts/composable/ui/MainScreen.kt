@@ -5,6 +5,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.compose.rememberNavController
 import com.example.contacts.composable.baseScreen.BaseScreen
 import com.example.contacts.composable.navigation.ContactsNavHost
+import com.example.contacts.navigation.ContactArgumentHolder
 import com.example.contacts.navigation.ContactsDestinations
 import com.example.contacts.viewModelImpl.main.MainScreenAction
 import com.example.contacts.viewModelImpl.main.MainScreenEffect
@@ -35,6 +36,7 @@ object MainScreen :
                     }
 
                     is MainScreenEffect.NavigateWithArgs -> {
+                        ContactArgumentHolder.contactID = it.args
                         navController.navigate(it.route + it.args)
                     }
                 }

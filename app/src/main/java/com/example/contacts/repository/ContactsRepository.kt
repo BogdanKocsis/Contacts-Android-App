@@ -8,4 +8,8 @@ class ContactsRepository @Inject constructor(
 ) {
 
     suspend fun getContacts() = contactRemoteDataSource.getContacts()
+
+    suspend fun getContactById(userId: String) = contactRemoteDataSource.getContactById(userId)
+
+    suspend fun getPosts(userId: String) = contactRemoteDataSource.getPosts(userId)
 }

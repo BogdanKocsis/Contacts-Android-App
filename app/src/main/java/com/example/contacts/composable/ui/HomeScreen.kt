@@ -127,7 +127,7 @@ object HomeScreen :
                             .width(50.dp)
                             .height(50.dp)
                             .clip(CircleShape),
-                        imageModel = "https://avatars.githubusercontent.com/u/27887884?v=4",
+                        imageModel = "https://picsum.photos/200/200",
                         contentScale = ContentScale.Crop,
                         circularReveal = CircularReveal(duration = 250),
                     )

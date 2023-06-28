@@ -15,3 +15,7 @@ enum class ContactsDestinations(
         route = "detail/{contactId}",
         content = { ContactDetailsScreen.Content(viewModel = androidx.hilt.navigation.compose.hiltViewModel()) })
 }
+
+object ContactArgumentHolder {
+    var contactID: String? = null
+}
