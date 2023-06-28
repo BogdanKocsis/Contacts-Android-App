@@ -1,4 +1,5 @@
 buildscript {
+    val agp_version by extra("8.0.0")
     repositories {
         mavenCentral()
         google()
@@ -7,6 +8,7 @@ buildscript {
     dependencies {
         classpath(Dependencies.Google.googleServices)
         classpath(Dependencies.DaggerHilt.hiltGradlePlugin)
+        classpath("com.android.tools.build:gradle:8.0.0")
     }
 }
 
