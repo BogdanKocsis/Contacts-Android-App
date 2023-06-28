@@ -5,7 +5,6 @@ object Versions {
     const val kotlinVersion = "1.8.0"
 
     object AndroidX {
-        const val roomVersion = "2.5.0"
         const val coreKtxVersion = "1.9.0"
         const val lifecycleRuntimeKtxVersion = " 2.6.0-alpha05"
         const val lifecycleRuntimeComposeVersion = " 2.6.0-rc01"
@@ -15,6 +14,7 @@ object Versions {
         const val material3Version = "1.1.0-alpha05"
         const val materialIconsVersion = "1.3.1"
         const val appCompatVersion = "1.6.1"
+        const val foundationVersion="1.4.3"
     }
 
     object DaggerHilt {
@@ -46,4 +46,13 @@ object Versions {
         const val mockkVersion = "1.13.1"
         const val jacocoVersion = "0.8.8"
     }
+
+    object Networking {
+        const val retrofitVersion = "2.9.0"
+        const val okhttp3Version = "5.0.0-alpha.3"
+        const val glideSkydovesVersion = "1.3.6"
+        const val glideBumptechVersion = "4.4.0"
+    }
+
+
 }

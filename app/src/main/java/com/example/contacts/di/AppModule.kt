@@ -1,6 +1,7 @@
 package com.example.contacts.di
 
 import com.example.contacts.navigation.NavigationManager
+import com.example.contacts.repository.ContactsRepository
 import com.example.contacts.repository.remoteDataSource.ContactRemoteDataSource
 import com.example.contacts.repository.remoteDataSource.ContactsApi
 import dagger.Module
@@ -33,4 +34,9 @@ class AppModule {
     @Provides
     fun providesContactsRemoteDataSource(api: ContactsApi): ContactRemoteDataSource =
         ContactRemoteDataSource(api)
+
+    @Provides
+    @Singleton
+    fun providesContactsRepository(contactRemoteDataSource: ContactRemoteDataSource): ContactsRepository =
+        ContactsRepository(contactRemoteDataSource)
 }

@@ -92,9 +92,6 @@ dependencies {
     implementation(Dependencies.KotlinX.kotlinxCoroutinesAndroid)
     implementation(Dependencies.KotlinX.kotlinxCoroutinesPlayServices)
 
-    implementation(Dependencies.Room.room)
-    kapt(Dependencies.Room.roomCompiler)
-    implementation(Dependencies.Room.roomKtx)
 
     testImplementation(Dependencies.Testing.junit)
     androidTestImplementation(Dependencies.Testing.testJunit)
@@ -109,8 +106,14 @@ dependencies {
     androidTestImplementation(Dependencies.Testing.navigationTest)
     androidTestImplementation(Dependencies.Testing.hiltAndroidTesting)
 
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
-    implementation ("com.squareup.okhttp3:okhttp:5.0.0-alpha.3")
-    implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3")
+    implementation (Dependencies.Networking.retrofit)
+    implementation (Dependencies.Networking.retrofitConverter)
+    implementation (Dependencies.Networking.okhttp3)
+    implementation (Dependencies.Networking.okhttp3Logging)
+
+    implementation(Dependencies.Networking.glideSkydoves)
+    kapt(Dependencies.Networking.glideBumptech)
+    implementation(Dependencies.AndroidX.foundation)
+
+
 }

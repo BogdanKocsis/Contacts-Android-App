@@ -7,6 +7,8 @@ object Dependencies {
         const val lifecycleRuntimeCompose =
             "androidx.lifecycle:lifecycle-runtime-compose:${Versions.AndroidX.lifecycleRuntimeComposeVersion}"
         const val appCompat = "androidx.appcompat:appcompat:${Versions.AndroidX.appCompatVersion}"
+        const val foundation =
+            "androidx.compose.foundation:foundation:${Versions.AndroidX.foundationVersion}"
 
     }
 
@@ -68,11 +70,6 @@ object Dependencies {
             "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${Versions.KotlinX.kotlinxCoroutines}"
     }
 
-    object Room {
-        const val roomCompiler = "androidx.room:room-compiler:${Versions.AndroidX.roomVersion}"
-        const val roomKtx = "androidx.room:room-ktx:${Versions.AndroidX.roomVersion}"
-        const val room = "androidx.room:room-common:${Versions.AndroidX.roomVersion}"
-    }
 
     object Testing {
         const val junit = "junit:junit:${Versions.Testing.junitVersion}"
@@ -94,5 +91,20 @@ object Dependencies {
         const val hiltAndroidTesting =
             "com.google.dagger:hilt-android-testing:${Versions.DaggerHilt.hiltVersion}"
         const val jacoco = "org.jacoco:org.jacoco.core:${Versions.Testing.jacocoVersion}"
+    }
+
+    object Networking {
+        const val retrofit =
+            "com.squareup.retrofit2:retrofit:${Versions.Networking.retrofitVersion}"
+        const val retrofitConverter =
+            "com.squareup.retrofit2:converter-moshi:${Versions.Networking.retrofitVersion}"
+        const val okhttp3 = "com.squareup.okhttp3:okhttp:${Versions.Networking.okhttp3Version}"
+        const val okhttp3Logging =
+            "com.squareup.okhttp3:logging-interceptor:${Versions.Networking.okhttp3Version}"
+        const val glideSkydoves =
+            "com.github.skydoves:landscapist-glide:${Versions.Networking.glideSkydovesVersion}"
+        const val glideBumptech =
+            "com.github.bumptech.glide:compiler:${Versions.Networking.glideBumptechVersion}"
+
     }
 }

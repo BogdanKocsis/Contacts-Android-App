@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Contacts</string>
+    <string name="my_contacts">CONTACTELE MELE</string>
+    <string name="contacts">Contacte</string>
 </resources>
