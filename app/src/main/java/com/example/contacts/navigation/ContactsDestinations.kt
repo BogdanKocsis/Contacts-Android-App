@@ -1,6 +1,7 @@
 package com.example.contacts.navigation
 
 import androidx.compose.runtime.Composable
+import com.example.contacts.composable.ui.ContactDetailsScreen
 
 enum class ContactsDestinations(
     val route: String,
@@ -10,5 +11,7 @@ enum class ContactsDestinations(
     Home(
         route = "home",
         content = { com.example.contacts.composable.ui.HomeScreen.Content(viewModel = androidx.hilt.navigation.compose.hiltViewModel()) }),
-    Detail(route = "detail", content = {})
+    Detail(
+        route = "detail/{contactId}",
+        content = { ContactDetailsScreen.Content(viewModel = androidx.hilt.navigation.compose.hiltViewModel()) })
 }

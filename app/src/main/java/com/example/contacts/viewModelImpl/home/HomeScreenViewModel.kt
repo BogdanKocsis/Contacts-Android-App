@@ -26,6 +26,7 @@ class HomeScreenViewModel @Inject constructor(
             }
 
             is HomeScreenResult.NavigateToContactDetailsResult -> {
+                navigationManager.navigateWithArgs(result.destination, result.contactId)
                 previousState
             }
 
@@ -50,7 +51,10 @@ sealed class HomeScreenAction {
 sealed class HomeScreenResult {
     data class ShowContactsResult(val contactsList: List<Contact>) : HomeScreenResult()
 
-    data class NavigateToContactDetailsResult(val destination: ContactsDestinations) :
+    data class NavigateToContactDetailsResult(
+        val destination: ContactsDestinations,
+        val contactId: String
+    ) :
         HomeScreenResult()
 
     object LoadingResult : HomeScreenResult()

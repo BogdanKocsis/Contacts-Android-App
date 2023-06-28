@@ -30,13 +30,12 @@ object MainScreen :
         LaunchedEffect(Unit) {
             effect.collect {
                 when (it) {
-                    is MainScreenEffect.NavigateWithDestination -> {
-                        navController.popBackStack(it.route, true)
-                        navController.navigate(it.route)
+                       MainScreenEffect.PopBack -> {
+                        navController.popBackStack()
                     }
 
-                    MainScreenEffect.PopBack -> {
-                        navController.popBackStack()
+                    is MainScreenEffect.NavigateWithArgs -> {
+                        navController.navigate(it.route + it.args)
                     }
                 }
             }

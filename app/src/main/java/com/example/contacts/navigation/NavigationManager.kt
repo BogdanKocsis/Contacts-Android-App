@@ -9,18 +9,19 @@ class NavigationManager {
     private val _commands = MutableSharedFlow<NavigationCommands>(extraBufferCapacity = 1)
     val navigateCommand: SharedFlow<NavigationCommands> = _commands.asSharedFlow()
 
-    fun navigate(directions: ContactsDestinations) {
-        val navCommand = NavigationCommands.NavigateCommand(directions)
+    fun navigateBack() {
+        val navCommand = NavigationCommands.PopBackCommand
         _commands.tryEmit(navCommand)
     }
 
-    fun navigateBack() {
-        val navCommand = NavigationCommands.PopBackCommand
+    fun navigateWithArgs(directions: ContactsDestinations, argument: String) {
+        val navCommand = NavigationCommands.NavigateCommandWithArgs(directions, argument)
         _commands.tryEmit(navCommand)
     }
 }
 
 sealed class NavigationCommands {
-    data class NavigateCommand(val directions: ContactsDestinations) : NavigationCommands()
     object PopBackCommand : NavigationCommands()
+    data class NavigateCommandWithArgs(val directions: ContactsDestinations, val args: String) :
+        NavigationCommands()
 }

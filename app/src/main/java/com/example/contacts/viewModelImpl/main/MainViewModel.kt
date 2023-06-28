@@ -15,13 +15,19 @@ class MainViewModel @Inject constructor(interactor: MainInteractor) :
         previousState: MainScreenState,
         result: MainScreenResult
     ): MainScreenState {
-        return when(result){
-            is MainScreenResult.NavigateWithDestination -> {
-                emmitEffect(MainScreenEffect.NavigateWithDestination(result.destinations.route))
+        return when (result) {
+            is MainScreenResult.PopBack -> {
+                emmitEffect(MainScreenEffect.PopBack)
                 previousState
             }
-            MainScreenResult.PopBack -> {
-                emmitEffect(MainScreenEffect.PopBack)
+
+            is MainScreenResult.NavigateWithArgs -> {
+                emmitEffect(
+                    MainScreenEffect.NavigateWithArgs(
+                        result.destination.route,
+                        result.args
+                    )
+                )
                 previousState
             }
         }
@@ -34,13 +40,17 @@ sealed class MainScreenState {
 
 sealed class MainScreenResult {
 
-    data class NavigateWithDestination(val destinations: ContactsDestinations) : MainScreenResult()
     object PopBack : MainScreenResult()
+
+    data class NavigateWithArgs(val destination: ContactsDestinations, val args: String) :
+        MainScreenResult()
 }
 
 object MainScreenAction
 
 sealed class MainScreenEffect {
-    data class NavigateWithDestination(val route: String) : MainScreenEffect()
     object PopBack : MainScreenEffect()
+
+    data class NavigateWithArgs(val route: String, val args: String) : MainScreenEffect()
+
 }

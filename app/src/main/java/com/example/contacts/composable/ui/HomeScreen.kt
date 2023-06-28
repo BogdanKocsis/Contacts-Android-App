@@ -2,6 +2,7 @@ package com.example.contacts.composable.ui
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -89,7 +90,7 @@ object HomeScreen :
                             )
                         }
                         items(state.contactsList) { contact ->
-                            ContactListItem(contact)
+                            ContactListItem(contact, processUiAction)
                             Divider(thickness = 1.dp, color = Color(243, 246, 249))
                         }
                     }
@@ -102,13 +103,17 @@ object HomeScreen :
 
 
     @Composable
-    fun ContactListItem(contact: Contact) {
+    fun ContactListItem(
+        contact: Contact,
+        processUiAction: (action: HomeScreenAction) -> Unit
+    ) {
 
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(Color.White)
-                .padding(vertical = 16.dp),
+                .padding(vertical = 16.dp)
+                .clickable { processUiAction(HomeScreenAction.NavigateToContactDetails(contact.id.toString())) },
             verticalAlignment = Alignment.CenterVertically
         ) {
             Box(
@@ -131,7 +136,7 @@ object HomeScreen :
                         modifier = Modifier
                             .drawBehind {
                                 drawCircle(
-                                    color = Color(188,200,211),
+                                    color = Color(188, 200, 211),
                                     radius = 60f
                                 )
                             }
